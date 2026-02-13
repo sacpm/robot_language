@@ -1,0 +1,54 @@
+.period-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.85rem;
+}
+
+.period-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.period-btn--morning { border-left: 3px solid var(--accent-morning); }
+.period-btn--story { border-left: 3px solid var(--accent-story); }
+.period-btn--evening { border-left: 3px solid var(--accent-evening); }
+
+.period-btn--playing {
+  background: rgba(240, 98, 146, 0.15);
+  border-color: var(--accent-playing);
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 4px rgba(240, 98, 146, 0.2); }
+  50% { box-shadow: 0 0 12px rgba(240, 98, 146, 0.4); }
+}
+
+.period-btn__icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.period-btn__label {
+  flex: 1;
+  text-align: left;
+}
+
+.period-btn__action {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.period-btn:hover .period-btn__action {
+  opacity: 1;
+}

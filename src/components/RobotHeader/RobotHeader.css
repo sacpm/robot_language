@@ -1,0 +1,30 @@
+.robot-header {
+  text-align: center;
+  padding: 2rem 1rem 1.5rem;
+}
+
+.robot-header__icon {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  animation: bob 2s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.robot-header__title {
+  font-family: 'Courier New', monospace;
+  font-size: 2rem;
+  color: var(--text-accent);
+  margin: 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.robot-header__subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0.4rem 0 0;
+}
