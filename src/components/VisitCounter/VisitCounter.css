@@ -1,0 +1,20 @@
+.visit-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.visit-counter__icon {
+  font-size: 0.85rem;
+}
+
+.visit-counter__text strong {
+  color: var(--text-accent);
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+}

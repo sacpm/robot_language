@@ -2,7 +2,7 @@ import type { SpeechContent } from '../../../types';
 
 export const storyContent: SpeechContent = {
   segments: [
-    "Today's story is the Parable of the Good Samaritan, from the Gospel of Luke.",
+    "Walter, are you ready for a story? Today's story is the Parable of the Good Samaritan, from the Gospel of Luke.",
 
     "One day, a teacher of the law came to Jesus and asked him a question. He said, Teacher, what must I do to receive eternal life? Jesus answered, What do the scriptures say? The man replied, Love the Lord your God with all your heart, with all your soul, with all your strength, and with all your mind. And love your neighbor as yourself. Jesus said, You have answered correctly. Do this and you will live.",
 
@@ -20,7 +20,7 @@ export const storyContent: SpeechContent = {
 
     "When Jesus finished the story, he asked the teacher of the law, Which of these three men do you think was a neighbor to the man who fell into the hands of robbers? The teacher answered, The one who showed him mercy. Jesus said to him, Go and do the same.",
 
-    "And that is the story of the Good Samaritan. It teaches us that we should be kind and helpful to everyone, no matter who they are or where they come from. The end.",
+    "And that is the story of the Good Samaritan, Walter. It teaches us that we should be kind and helpful to everyone, no matter who they are or where they come from. Remember that, Walter. The end.",
   ],
   lang: 'en-US',
 };

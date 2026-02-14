@@ -3,7 +3,10 @@ import { useCurrentDay } from './hooks/useCurrentDay';
 import { useSpeechSynthesis } from './hooks/useSpeechSynthesis';
 import { RobotHeader } from './components/RobotHeader/RobotHeader';
 import { WeeklySchedule } from './components/WeeklySchedule/WeeklySchedule';
+import { InteractiveButtons } from './components/InteractiveButtons/InteractiveButtons';
+import { ColorPanel } from './components/ColorPanel/ColorPanel';
 import { NowPlaying } from './components/NowPlaying/NowPlaying';
+import { VisitCounter } from './components/VisitCounter/VisitCounter';
 
 function App() {
   const currentDay = useCurrentDay();
@@ -11,7 +14,18 @@ function App() {
 
   return (
     <div className="app">
-      <RobotHeader />
+      <VisitCounter />
+      <RobotHeader isSpeaking={speech.playbackState === 'playing'} />
+      <InteractiveButtons
+        activeKey={speech.activeKey}
+        onPlay={speech.speak}
+        onStop={speech.stop}
+      />
+      <ColorPanel
+        activeKey={speech.activeKey}
+        onPlay={speech.speak}
+        onStop={speech.stop}
+      />
       <WeeklySchedule
         currentDay={currentDay}
         activeKey={speech.activeKey}

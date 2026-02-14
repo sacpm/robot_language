@@ -59,14 +59,19 @@ export function useSpeechSynthesis() {
 
     const utterance = new SpeechSynthesisUtterance(content.segments[index]);
     utterance.lang = content.lang;
-    utterance.rate = content.lang.startsWith('zh') ? 0.85 : 0.9;
+    const defaultRate = content.lang.startsWith('zh') ? 0.85 : 0.9;
+    utterance.rate = content.rate ?? defaultRate;
     utterance.pitch = 1.0;
 
     const voice = selectVoice(content.lang);
     if (voice) utterance.voice = voice;
 
     utterance.onend = () => {
-      setTimeout(() => speakSegment(content, index + 1), 500);
+      // Short segments (single words) use shortPauseMs if provided, else 150ms
+      // Long segments (sentences) always use 500ms
+      const shortPause = content.shortPauseMs ?? 150;
+      const delay = content.segments[index].length < 40 ? shortPause : 500;
+      setTimeout(() => speakSegment(content, index + 1), delay);
     };
 
     utterance.onerror = (e) => {

@@ -1,24 +1,13 @@
 .robot-header {
   text-align: center;
-  padding: 2rem 1rem 1.5rem;
-}
-
-.robot-header__icon {
-  font-size: 3.5rem;
-  margin-bottom: 0.5rem;
-  animation: bob 2s ease-in-out infinite;
-}
-
-@keyframes bob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  padding: 1.5rem 1rem 1rem;
 }
 
 .robot-header__title {
   font-family: 'Courier New', monospace;
   font-size: 2rem;
   color: var(--text-accent);
-  margin: 0;
+  margin: 0.5rem 0 0;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -27,4 +16,288 @@
   font-size: 0.95rem;
   color: var(--text-secondary);
   margin: 0.4rem 0 0;
+}
+
+/* ===== Robot Character ===== */
+.robot {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  animation: idle-bob 3s ease-in-out infinite;
+}
+
+@keyframes idle-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* --- Antenna --- */
+.robot__antenna {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.robot__antenna-ball {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  box-shadow: 0 0 8px rgba(79, 195, 247, 0.5);
+  transition: all 0.3s;
+}
+
+.robot__antenna-stick {
+  width: 4px;
+  height: 16px;
+  background: #6b7280;
+  border-radius: 2px;
+}
+
+/* --- Head --- */
+.robot__head {
+  width: 120px;
+  height: 90px;
+  background: linear-gradient(135deg, #4b5563, #374151);
+  border-radius: 20px 20px 16px 16px;
+  border: 3px solid #6b7280;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Eyes --- */
+.robot__eyes {
+  display: flex;
+  gap: 24px;
+}
+
+.robot__eye {
+  width: 28px;
+  height: 28px;
+  background: #1a1d23;
+  border-radius: 50%;
+  border: 2px solid var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.robot__pupil {
+  width: 12px;
+  height: 12px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  transition: transform 0.3s;
+  box-shadow: 0 0 6px rgba(79, 195, 247, 0.6);
+}
+
+/* --- Mouth --- */
+.robot__mouth {
+  width: 36px;
+  height: 8px;
+  background: var(--accent-primary);
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  box-shadow: 0 0 6px rgba(79, 195, 247, 0.4);
+}
+
+/* --- Body --- */
+.robot__body {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 6px;
+}
+
+/* --- Torso --- */
+.robot__torso {
+  width: 90px;
+  height: 70px;
+  background: linear-gradient(135deg, #4b5563, #374151);
+  border-radius: 12px;
+  border: 3px solid #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.robot__chest-light {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #374151;
+  border: 2px solid #6b7280;
+  transition: all 0.3s;
+}
+
+/* --- Arms --- */
+.robot__arm {
+  width: 20px;
+  height: 56px;
+  background: linear-gradient(135deg, #4b5563, #374151);
+  border: 2px solid #6b7280;
+  border-radius: 10px;
+  margin-top: 8px;
+  transition: transform 0.3s ease;
+  transform-origin: top center;
+  position: relative;
+}
+
+.robot__arm--left {
+  margin-right: 4px;
+}
+
+.robot__arm--right {
+  margin-left: 4px;
+}
+
+.robot__hand {
+  width: 18px;
+  height: 18px;
+  background: #4b5563;
+  border: 2px solid #6b7280;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ===== Speaking Animations ===== */
+
+/* Mouth opens and closes */
+.robot--speaking .robot__mouth {
+  animation: mouth-talk 0.35s ease-in-out infinite alternate;
+}
+
+@keyframes mouth-talk {
+  0% {
+    height: 6px;
+    width: 36px;
+    border-radius: 4px;
+  }
+  50% {
+    height: 16px;
+    width: 28px;
+    border-radius: 50%;
+  }
+  100% {
+    height: 10px;
+    width: 32px;
+    border-radius: 6px;
+  }
+}
+
+/* Eyes look around while talking */
+.robot--speaking .robot__eye--left .robot__pupil {
+  animation: eye-look-left 2.5s ease-in-out infinite;
+}
+
+.robot--speaking .robot__eye--right .robot__pupil {
+  animation: eye-look-right 2.5s ease-in-out infinite;
+}
+
+@keyframes eye-look-left {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-3px, -2px); }
+  40% { transform: translate(3px, 0); }
+  60% { transform: translate(-2px, 2px); }
+  80% { transform: translate(2px, -1px); }
+}
+
+@keyframes eye-look-right {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-3px, -1px); }
+  40% { transform: translate(2px, 2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(3px, 1px); }
+}
+
+/* Antenna glows brighter */
+.robot--speaking .robot__antenna-ball {
+  animation: antenna-glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes antenna-glow {
+  0% {
+    background: var(--accent-primary);
+    box-shadow: 0 0 8px rgba(79, 195, 247, 0.5);
+  }
+  100% {
+    background: #81d4fa;
+    box-shadow: 0 0 20px rgba(79, 195, 247, 0.9), 0 0 40px rgba(79, 195, 247, 0.4);
+  }
+}
+
+/* Chest light pulses */
+.robot--speaking .robot__chest-light {
+  animation: chest-pulse 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes chest-pulse {
+  0% {
+    background: #374151;
+    box-shadow: none;
+  }
+  100% {
+    background: var(--accent-playing);
+    box-shadow: 0 0 12px rgba(240, 98, 146, 0.6);
+  }
+}
+
+/* Left arm gesticulates */
+.robot--speaking .robot__arm--left {
+  animation: arm-gesture-left 1.8s ease-in-out infinite;
+}
+
+@keyframes arm-gesture-left {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-25deg); }
+  50% { transform: rotate(-5deg); }
+  75% { transform: rotate(-30deg); }
+}
+
+/* Right arm gesticulates (offset timing) */
+.robot--speaking .robot__arm--right {
+  animation: arm-gesture-right 2.2s ease-in-out infinite;
+}
+
+@keyframes arm-gesture-right {
+  0%, 100% { transform: rotate(0deg); }
+  30% { transform: rotate(20deg); }
+  60% { transform: rotate(5deg); }
+  80% { transform: rotate(28deg); }
+}
+
+/* Whole body has more energy when speaking */
+.robot--speaking {
+  animation: speaking-bob 1.5s ease-in-out infinite;
+}
+
+@keyframes speaking-bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-4px) rotate(-1deg); }
+  50% { transform: translateY(-2px) rotate(0deg); }
+  75% { transform: translateY(-5px) rotate(1deg); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .robot,
+  .robot--speaking,
+  .robot--speaking .robot__mouth,
+  .robot--speaking .robot__eye--left .robot__pupil,
+  .robot--speaking .robot__eye--right .robot__pupil,
+  .robot--speaking .robot__antenna-ball,
+  .robot--speaking .robot__chest-light,
+  .robot--speaking .robot__arm--left,
+  .robot--speaking .robot__arm--right {
+    animation: none;
+  }
 }

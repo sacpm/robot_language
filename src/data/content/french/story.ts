@@ -2,7 +2,7 @@ import type { SpeechContent } from '../../../types';
 
 export const storyContent: SpeechContent = {
   segments: [
-    "L'histoire d'aujourd'hui est la parabole du bon Samaritain, tir\u00E9e de l'\u00C9vangile selon Luc.",
+    "Walter, tu es pr\u00EAt pour une histoire ? L'histoire d'aujourd'hui est la parabole du bon Samaritain, tir\u00E9e de l'\u00C9vangile selon Luc.",
 
     "Un jour, un docteur de la loi vint trouver J\u00E9sus et lui posa une question. Il dit, Ma\u00EEtre, que dois-je faire pour obtenir la vie \u00E9ternelle ? J\u00E9sus r\u00E9pondit, Qu'est-il \u00E9crit dans la loi ? L'homme r\u00E9pondit, Tu aimeras le Seigneur ton Dieu de tout ton c\u0153ur, de toute ton \u00E2me, de toute ta force et de toute ta pens\u00E9e, et tu aimeras ton prochain comme toi-m\u00EAme. J\u00E9sus lui dit, Tu as bien r\u00E9pondu. Fais cela et tu vivras.",
 
@@ -20,7 +20,7 @@ export const storyContent: SpeechContent = {
 
     "Quand J\u00E9sus eut fini l'histoire, il demanda au docteur de la loi, Lequel de ces trois hommes te semble avoir \u00E9t\u00E9 le prochain de celui qui \u00E9tait tomb\u00E9 entre les mains des brigands ? Le docteur r\u00E9pondit, Celui qui a eu piti\u00E9 de lui. J\u00E9sus lui dit, Va et fais de m\u00EAme.",
 
-    "Voil\u00E0 l'histoire du bon Samaritain. Elle nous enseigne que nous devons \u00EAtre gentils et serviables envers tout le monde, peu importe qui ils sont ou d'o\u00F9 ils viennent. Fin de l'histoire.",
+    "Voil\u00E0 l'histoire du bon Samaritain, Walter. Elle nous enseigne que nous devons \u00EAtre gentils et serviables envers tout le monde, peu importe qui ils sont ou d'o\u00F9 ils viennent. Souviens-toi de cela, Walter. Fin de l'histoire.",
   ],
   lang: 'fr-FR',
 };
